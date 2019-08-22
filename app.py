@@ -13,10 +13,6 @@ format_file = ["commonmark", "docbook", "docx", "epub", "haddock", "html",
     "markdown_phpextra", "markdown_strict", "mediawiki", "native",
     "odt", "opml", "org", "rst", "t2t", "textile", "twiki"]
 
-@app.before_first_request
-def before_first_request():
-    os.system("wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz&&tar -xzvf pandoc-2.7.3-linux.tar.gz&&export pandoc=/app/pandoc-2.7.3/bin/pandoc")
-
 @app.route("/")
 def index():
     return render_template("index.html", format_file = format_file)
