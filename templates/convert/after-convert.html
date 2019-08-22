@@ -5,6 +5,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}" type="text/css">
     </head>
     <body>
-        <button onclick="window.location='/download/{{ filename }}'">下载</button>
+        <button class="button is-primary is-link is-outlined is-rounded is-medium" onclick="window.location='/download/{{ filename }}'">下载</button>
     </body>
 </html>
