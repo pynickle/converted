@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}" type="text/css">
+    </head>
+    <body>
+        <button onclick="window.location='/download/{{ filename }}'">下载</button>
+    </body>
+</html>

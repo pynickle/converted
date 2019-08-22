@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}" type="text/css">
+</head>
+
+<body>
+    {% for msg in get_flashed_messages() %}
+    <article class="message is-info" id="info">
+        <div class="message-header">
+            <p>消息</p>
+            <button class="delete" aria-label="delete"
+                onclick="document.getElementById('info').style.display = 'none'"></button>
+        </div>
+        <div class="message-body">
+            {{ msg }}
+        </div>
+    </article>
+    {% endfor %}
+    <form method="POST" action="/before-convert?" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <div class="select is-multiple">
+            <select multiple size="8" name="select">
+                {% for type in format_file %}
+                <option id="{{ type }}" value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="开始转换">
+    </form>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>
